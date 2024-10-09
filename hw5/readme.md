@@ -63,7 +63,7 @@ WHERE LastName LIKE N'%еле%'; -- Префикс N перед строковы
 ```sql
 SELECT LastName
 FROM [HR].[Employees]
-WHERE LastName NOT LIKE N'[А-Д]%';  -- Оператор "[A-E]" исключает фамилии, начинающиеся с этих букв
+WHERE LastName NOT LIKE N'[А-Д]%';  -- Оператор "[A-Д]" исключает фамилии, начинающиеся с этих букв
 ```
 
 <img width="152" alt="Screenshot 2024-10-09 at 16 23 38" src="https://github.com/user-attachments/assets/fb962ad6-e222-4b74-a6af-698985c14b3b">
