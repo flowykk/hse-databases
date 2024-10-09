@@ -1,4 +1,4 @@
-<img width="150" alt="Screenshot 2024-10-09 at 16 21 32" src="https://github.com/user-attachments/assets/215b7e8e-6f73-44c0-be5c-97e0b0ea75c6">## 1. Из базы данных TSQL 2012 из таблицы [Production].[Suppliers] показать  все записи, где поле region равно NULL
+## 1. Из базы данных TSQL 2012 из таблицы [Production].[Suppliers] показать  все записи, где поле region равно NULL
 
 ```sql
 SELECT * 
