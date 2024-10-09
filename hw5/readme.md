@@ -1,4 +1,4 @@
-## 1. Из базы данных TSQL 2012 из таблицы [Production].[Suppliers] показать  все записи, где поле region равно NULL
+<img width="150" alt="Screenshot 2024-10-09 at 16 21 32" src="https://github.com/user-attachments/assets/215b7e8e-6f73-44c0-be5c-97e0b0ea75c6">## 1. Из базы данных TSQL 2012 из таблицы [Production].[Suppliers] показать  все записи, где поле region равно NULL
 
 ```sql
 SELECT * 
@@ -21,41 +21,52 @@ WHERE region IS NOT NULL;
 ## 3. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, состоящие из четырех букв (Указание - любая буква это подчеркивание)
 
 ```sql
+SELECT LastName
+FROM [HR].[Employees]
+WHERE LastName LIKE '____';  -- Подчеркивание = любой букве
 ```
+
+<img width="151" alt="Screenshot 2024-10-09 at 16 08 05" src="https://github.com/user-attachments/assets/5d62cf6b-314b-409f-81a9-c0759ac71605">
 
 ## 4. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, начинающиеся с Ca(Ка).
 
 ```sql
+SELECT LastName
+FROM [HR].[Employees]
+WHERE LastName LIKE N'Ка%'; -- Префикс N перед строковыми литералами, чтобы указывать, что строка является юникодом
 ```
+
+<img width="157" alt="Screenshot 2024-10-09 at 16 21 02" src="https://github.com/user-attachments/assets/15b03fec-1b43-48ac-b50b-ebbc221ebb68">
 
 ## 5. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, заканчивающиеся на ed(ед).
 
 ```sql
+SELECT LastName
+FROM [HR].[Employees]
+WHERE LastName LIKE N'%ед'; -- Префикс N перед строковыми литералами, чтобы указывать, что строка является юникодом
 ```
+
+<img width="149" alt="Screenshot 2024-10-09 at 16 22 02" src="https://github.com/user-attachments/assets/a05fede5-c38f-425a-8f76-3e768eb4ecb2">
 
 ## 6. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, содержащие ele(еле).
 
 ```sql
+SELECT LastName
+FROM [HR].[Employees]
+WHERE LastName LIKE N'%еле%'; -- Префикс N перед строковыми литералами, чтобы указывать, что строка является юникодом
 ```
+
+<img width="149" alt="Screenshot 2024-10-09 at 16 22 23" src="https://github.com/user-attachments/assets/937c79b9-f251-4181-98e3-2707104a4ee7">
 
 ## 7. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, которые не начинаются с букв ABCDE(АБВГД).
 
 ```sql
-CREATE TABLE Task
-(
-  orderid int,
-  price decimal(7,2) 
-)
-
-INSERT INTO Task  (orderid, price) VALUES (1,1.5) 
-INSERT INTO Task  (orderid, price) VALUES (2,2.5) 
-INSERT INTO Task  (orderid, price) VALUES (3,20.5) 
-INSERT INTO Task  (orderid, price) VALUES (4,2.5)
-INSERT INTO Task (orderid) VALUES (5)
+SELECT LastName
+FROM [HR].[Employees]
+WHERE LastName NOT LIKE N'[А-Д]%';  -- Оператор "[A-E]" исключает фамилии, начинающиеся с этих букв
 ```
 
-```sql
-```
+<img width="152" alt="Screenshot 2024-10-09 at 16 23 38" src="https://github.com/user-attachments/assets/fb962ad6-e222-4b74-a6af-698985c14b3b">
 
 ## 8.0 Выбрать из таблицы Task значения price так, чтобы они не повторялись
 
