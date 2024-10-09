@@ -71,22 +71,39 @@ WHERE LastName NOT LIKE N'[А-Д]%';  -- Оператор "[A-E]" исключа
 ## 8.0 Выбрать из таблицы Task значения price так, чтобы они не повторялись
 
 ```sql
+SELECT DISTINCT price
+FROM Task;
 ```
+
+<img width="178" alt="Screenshot 2024-10-09 at 16 28 03" src="https://github.com/user-attachments/assets/8f76f95f-709a-4d75-840a-bf41407660b6">
 
 ## 8.1 Получить сумму значений в таблице task для поля price
 
 ```sql
+SELECT SUM(price)
+FROM Task;
 ```
+
+<img width="194" alt="Screenshot 2024-10-09 at 16 28 40" src="https://github.com/user-attachments/assets/002bc2b6-edd5-44ac-aa2a-9f27762f672b">
 
 ## 8.2 Получить среднее значение в таблице task для поля price
 
 ```sql
+SELECT AVG(price)
+FROM Task;
 ```
+
+<img width="208" alt="Screenshot 2024-10-09 at 16 29 12" src="https://github.com/user-attachments/assets/17e2774a-8898-492e-bfe2-7c7e2bfbc101">
 
 ## 8.3 Выбрать все значения из таблицы task и отсортировать их по полю price в порядке убывания
 
 ```sql
+SELECT *
+FROM Task
+ORDER BY price DESC;
 ```
+
+<img width="270" alt="Screenshot 2024-10-09 at 16 29 45" src="https://github.com/user-attachments/assets/266bba23-7200-4f21-9058-9f22fdafcc60">
 
 ## 9 Подсчитать максимальное значение в таблице Sales.OrderDetails для выражения qty * unitprice *(1-discount) для orderid = 10250
 
