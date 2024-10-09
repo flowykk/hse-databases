@@ -12,6 +12,7 @@
 
 ## 7. Найти все фамилии в таблице [HR].Employees базы данных TSQL 2012, которые не начинаются с букв ABCDE(АБВГД).
 
+```sql
 CREATE TABLE Task
 (
   orderid int,
@@ -23,6 +24,7 @@ INSERT INTO Task  (orderid, price) VALUES (2,2.5)
 INSERT INTO Task  (orderid, price) VALUES (3,20.5) 
 INSERT INTO Task  (orderid, price) VALUES (4,2.5)
 INSERT INTO Task (orderid) VALUES (5)
+```
 
 ## 8.0 Выбрать из таблицы Task значения price так, чтобы они не повторялись
 
