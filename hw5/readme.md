@@ -108,14 +108,29 @@ ORDER BY price DESC;
 ## 9 Подсчитать максимальное значение в таблице Sales.OrderDetails для выражения qty * unitprice *(1-discount) для orderid = 10250
 
 ```sql
+SELECT MAX(qty * unitprice * (1 - discount)) AS MaxValue
+FROM Sales.OrderDetails
+WHERE orderid = 10250;
 ```
+
+<img width="160" alt="Screenshot 2024-10-09 at 16 31 32" src="https://github.com/user-attachments/assets/ff9ac0d1-1c00-4d49-a37b-88df25ee42c6">
 
 ## 10. Для базы данных tsql2012 в таблице sales.orderdetails. Посчитать сумму значений qty для orderid = 10248
 
 ```sql
+SELECT SUM(qty) AS Sum
+FROM Sales.OrderDetails
+WHERE orderid = 10248;
 ```
+
+<img width="148" alt="Screenshot 2024-10-09 at 16 32 40" src="https://github.com/user-attachments/assets/850991b7-0da9-4ae2-97bd-a7ceef66c7f3">
 
 ## 11. Для таблицы hr.employees определить всех работников, которые родились в 1970 и 1973 годах
 
 ```sql
+SELECT empid, lastname, firstname, birthDate
+FROM [HR].[Employees]
+WHERE YEAR(BirthDate) IN (1970, 1973);
 ```
+
+<img width="525" alt="Screenshot 2024-10-09 at 16 33 38" src="https://github.com/user-attachments/assets/87f10cd0-9de3-47d3-b538-4726e99e86bf">
