@@ -133,8 +133,7 @@ FROM Sales.OrderDetails
 SELECT * FROM Sales.OrderDetails
 WHERE (unitprice * qty * (1 - discount)) > 50.5
 ```
-
-![Uploading Screenshot 2024-10-23 at 15.00.23.png…]()
+![Screenshot 2024-10-23 at 15 11 51](https://github.com/user-attachments/assets/7e5c2126-6616-4838-bcf7-7e496779d088)
 
 ## 13. Подсчитать среднее выражение для произведения qty * unitprice *(1-discount) в таблице Sales.OrderDetails для сотрудника по фамилии Peled (база tsql2012)
 
