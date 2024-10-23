@@ -58,32 +58,65 @@ WHERE c.lastname IN ('Gorbachev', 'Zaytsev');
 ## 6. Объединить при помощи JOIN две таблицы cities и regions и вывести все значения на экран
 
 ```sql
-
+SELECT c.city_name, r.region_name
+FROM cities c
+JOIN regions r
+ON c.city_id = r.city_id;
 ```
+
+![Screenshot 2024-10-23 at 13 15 21](https://github.com/user-attachments/assets/c332673e-8c6f-4dea-85ce-2507387c0e00)
 
 ## 7. Вывести на экран запрос предыдущей задачи  для города Тьматаракань
 
 ```sql
-
+SELECT c.city_name, r.region_name
+FROM cities c
+JOIN regions r
+ON c.city_id = r.city_id
+WHERE c.city_name = 'Tma Tarakan';
 ```
+
+![Screenshot 2024-10-23 at 13 16 07](https://github.com/user-attachments/assets/99a35355-f49a-49b9-867b-8fb0be4dbedc)
 
 ## 8. Объединить при помощи JOIN две таблицы regions и streets и вывести район и его улицу, для района в котором есть улица похожая на выражение "спартак чемпион"
 
 ```sql
-
+SELECT r.region_name, ss.street_name
+FROM regions r
+JOIN streets ss 
+ON r.region_id = ss.region_id
+WHERE ss.street_name LIKE '%spartak chempion%';
 ```
+
+![Screenshot 2024-10-23 at 13 17 18](https://github.com/user-attachments/assets/7c7c338f-6317-493b-becb-5e912b1037a2)
 
 ## 9. Вывести значение города , его района и улицу , для города района и улицы, где есть выражение в названии улицы похожее на "даешь ля"
 
 ```sql
-
+SELECT c.city_name, r.region_name, ss.street_name
+FROM cities c
+JOIN regions r
+ON c.city_id = r.city_id
+JOIN streets ss
+ON r.region_id = ss.region_id
+WHERE ss.street_name LIKE '%daesh lya%';
 ```
+
+![Screenshot 2024-10-23 at 13 18 43](https://github.com/user-attachments/assets/d59ffb40-cef4-45ca-b319-74b5e0eb7b78)
 
 ## 10. Вывести значение города , его района и улицу , для города района и улицы, где есть выражение в названии улицы похожее на "ЗАГС"
 
 ```sql
-
+SELECT c.city_name, r.region_name, ss.street_name
+FROM cities c
+JOIN regions r
+ON c.city_id = r.city_id
+JOIN streets ss
+ON r.region_id = ss.region_id
+WHERE ss.street_name LIKE '%zags%';
 ```
+
+![Screenshot 2024-10-23 at 13 19 36](https://github.com/user-attachments/assets/c6d0c144-d714-4c42-9311-554315d22fca)
 
 ## 11. Подсчитать сумму для поля qty таблицы Sales.OrderDetails базы данных TSQL2012
 
