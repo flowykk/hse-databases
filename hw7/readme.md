@@ -121,10 +121,13 @@ WHERE ss.street_name LIKE '%zags%';
 ## 11. Подсчитать сумму для поля qty таблицы Sales.OrderDetails базы данных TSQL2012
 
 ```sql
-
+SELECT SUM(qty) AS TotalQuantity
+FROM Sales.OrderDetails;
 ```
 
-## 12. Определить записи со стоимостью , подсчитанную в таблице sales.orderdetails больше чем 50.5
+![Screenshot 2024-10-23 at 13 28 12](https://github.com/user-attachments/assets/a3e28d4b-c94f-4b6d-a1d2-942da1022fde)
+
+## 12. Определить записи со стоимостью, подсчитанную в таблице sales.orderdetails больше чем 50.5
 
 ```sql
 
