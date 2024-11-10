@@ -111,11 +111,29 @@ WHERE num NOT IN (SELECT num FROM MyNumbers);
 ## 6.1 Коррелированный подзапрос
 
 ```sql
-
+SELECT 
+    e.LastName,
+    (SELECT SUM(od.qty)
+     FROM sales.OrderDetails od
+     JOIN sales.Orders o ON od.OrderID = o.OrderID
+     WHERE o.EmpID = e.EmpID) AS qty
+FROM hr.Employees e
+WHERE e.LastName LIKE N'%и%';
 ```
+
+![Screenshot 2024-11-10 at 19 33 41](https://github.com/user-attachments/assets/fed3c44d-d3c5-4fad-b0a3-d8fece087e65)
 
 ## 6.2 JOIN и группировка
 
 ```sql
-
+SELECT 
+    e.LastName,
+    SUM(od.Qty) AS qty
+FROM hr.Employees e
+JOIN sales.Orders o ON e.EmpID = o.EmpID
+JOIN sales.OrderDetails od ON o.OrderID = od.OrderID
+WHERE e.LastName LIKE N'%и%'
+GROUP BY e.LastName;
 ```
+
+![Screenshot 2024-11-10 at 19 34 01](https://github.com/user-attachments/assets/04e76691-c500-4961-944d-3b36db231681)
