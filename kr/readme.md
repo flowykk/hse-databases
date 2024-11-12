@@ -121,7 +121,3 @@ WHERE aupc.row_num = 1;
 ### Пример работы
 
 <img width="438" alt="Screenshot 2024-11-12 at 17 36 49" src="https://github.com/user-attachments/assets/3effe86a-85b3-4d0a-ac6c-e32c731354bc">
-
-```sql
-
-```
