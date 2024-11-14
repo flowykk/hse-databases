@@ -36,29 +36,40 @@ GROUP BY e.LastName, e.FirstName;
 ## 2.1. Изолированный подзапрос
 
 ```sql
-
+SELECT e.lastname, e.firstname, (SELECT COUNT(DISTINCT o.custid)
+     FROM Sales.Orders AS o
+     WHERE o.empid = e.empid) AS count
+FROM HR.Employees AS e;
 ```
+
+![Screenshot 2024-11-14 at 20 10 31](https://github.com/user-attachments/assets/877dc613-15de-4df2-bfe3-5feb9fdd39cc)
 
 ## 2.2. Коррелированного подзапроса
 
 ```sql
-
+SELECT e.lastname, e.firstname, COUNT(DISTINCT o.custid) AS count
+FROM HR.Employees AS e
+LEFT JOIN Sales.Orders AS o ON e.empid = o.empid
+GROUP BY e.empid, e.lastname, e.firstname;
 ```
+
+![Screenshot 2024-11-14 at 20 10 45](https://github.com/user-attachments/assets/5606f466-a725-4236-a30a-04f0fefbd882)
 
 ## 2.3. JOIN и группировка
 
 ```sql
-
+SELECT e.lastname, e.firstname, COUNT(DISTINCT o.custid) AS count
+FROM HR.Employees AS e
+JOIN Sales.Orders AS o ON e.empid = o.empid
+GROUP BY e.empid, e.lastname, e.firstname;
 ```
+
+![Screenshot 2024-11-14 at 20 10 54](https://github.com/user-attachments/assets/3701cbf0-45b3-47da-8d58-01b7695f0f2d)
 
 ## 3. Определить количество клиентов для каждого сотрудника для каждого года работы. Вывести фамилию , имя сотрудника и количество клиентов
 
 ```sql
-SELECT 
-    e.LastName,
-    e.FirstName,
-    YEAR(o.OrderDate) AS OrderYear,
-    COUNT(o.custid) AS ClientCount
+SELECT e.LastName, e.FirstName, YEAR(o.OrderDate) AS OrderYear, COUNT(o.custid) AS ClientCount
 FROM hr.Employees e
 JOIN sales.Orders o ON e.EmpID = o.EmpID
 GROUP BY e.LastName, e.FirstName, YEAR(o.OrderDate);
@@ -70,11 +81,7 @@ GROUP BY e.LastName, e.FirstName, YEAR(o.OrderDate);
 ## 4. Та же самая задача, но не повторять в учете одного и того же клиента
 
 ```sql
-SELECT 
-    e.LastName,
-    e.FirstName,
-    YEAR(o.OrderDate) AS OrderYear,
-    COUNT(DISTINCT o.custid) AS ClientCount
+SELECT e.LastName, e.FirstName, YEAR(o.OrderDate) AS OrderYear, COUNT(DISTINCT o.custid) AS ClientCount
 FROM hr.Employees e
 JOIN sales.Orders o ON e.EmpID = o.EmpID
 GROUP BY e.LastName, e.FirstName, YEAR(o.OrderDate);
