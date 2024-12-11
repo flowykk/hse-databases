@@ -8,6 +8,11 @@ c) При помощи INSERT INTO в итоговую таблицу
 ### a)
 
 ```sql
+SELECT * INTO dbo.Categories
+FROM ( SELECT * FROM Production.Categories) AS Subquery;
+
+SELECT * INTO dbo.Products
+FROM (SELECT * FROM Production.Products) AS Subquery;
 ```
 
 ### b) 
